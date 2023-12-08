@@ -16,12 +16,12 @@ function Header() {
       </div>
     );
     const end = (
-      <InputText placeholder="Search" type="text" className="w-full px-4 py-1" />
+      <InputText placeholder="Search" type="text" className="w-full px-4 py-1 bg-gray-600" />
     );
 
   return (
-    <div className="card">
-      <Menubar start={start} end={end} />
+    <div className="card bg-gray-900">
+      <Menubar start={start} end={end} className="bg-gray-900" />
     </div>
   );
 }
