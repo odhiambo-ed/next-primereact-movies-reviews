@@ -21,20 +21,38 @@ async function movieDetailsPage({params}) {
     const similarMovies = await getSimilarMovies(params.id);
 
   return (
-      <>
-        <h2>{movie.title}</h2>
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-          <p>{movie.overview}</p>
-          <p>Release Date: {movie.release_date}</p>
-          <p>Genre: {genre}</p>
-          <p>Runtime: {movie.runtime} minutes</p>
-          <p>Productio Companies: {productionCompanies}</p>
-          <p>Spoken Languages: {spokenLanguages}</p>
-          <p>Tagline: {movie.tagline}</p>
-          <p>Vote Average: {movie.vote_average}</p>
-          <p>Vote Count: {movie.vote_count}</p>
-      </>
-  )
+    <>
+      <h2>{movie.title}</h2>
+      <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+      <p>{movie.overview}</p>
+      <p>Release Date: {movie.release_date}</p>
+      <p>Genre: {genre}</p>
+      <p>Runtime: {movie.runtime} minutes</p>
+      <p>Productio Companies: {productionCompanies}</p>
+      <p>Spoken Languages: {spokenLanguages}</p>
+      <p>Tagline: {movie.tagline}</p>
+      <p>Vote Average: {movie.vote_average}</p>
+      <p>Vote Count: {movie.vote_count}</p>
+
+      {similarMovies.length > 0 && (
+        <div>
+          <h3>Similar Movies</h3>
+          <ul>
+            {similarMovies.map((similarMovie) => (
+              <li key={similarMovie.id}>
+                <p>{similarMovie.title}</p>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${similarMovie.poster_path}`}
+                  alt={similarMovie.title}
+                />
+                {/* Add more details about similar movies as needed */}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
+  );
 }
 
 export default movieDetailsPage;
