@@ -18,7 +18,7 @@ export async function getMovieByQuery(query) {
     `${API_URL}/search/movie?api_key=${API_KEY}&query=${query}`
   );
   const data = await res.json();
-  return data;
+  return data.results;
 }
 
 export async function getMovieCredits(id) {
@@ -42,5 +42,5 @@ export async function getSimilarMovies(id) {
     `${API_URL}/movie/${id}/similar?api_key=${API_KEY}`
   );
   const data = await res.json();
-  return data;
+  return data.results;
 }
