@@ -36,3 +36,11 @@ export async function getMovieReviews(id) {
   const data = await res.json();
   return data;
 }
+
+export async function getSimilarMovies(id) {
+  const res = await fetch(
+    `${API_URL}/movie/${id}/similar?api_key=${API_KEY}`
+  );
+  const data = await res.json();
+  return data;
+}
