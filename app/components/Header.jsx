@@ -1,7 +1,24 @@
+'use client'
+import React, {useState} from 'react'
 import { Menubar } from 'primereact/menubar'
 import { InputText } from 'primereact/inputtext'
+import { useRouter } from 'next/navigation'
 
 function Header() {
+  const [search, setSearch] = useState('');
+
+  // Use Router to navigate to search page
+  const router = useRouter();
+
+  // Handle submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search) {
+      router.push(`/search/movie?query=${search}`);
+      setSearch("");
+    }
+  }
+
     const start = (
       <div className="flex gap-4 align-items-center justify-content-center">
         <img
@@ -16,7 +33,17 @@ function Header() {
       </div>
     );
     const end = (
-      <InputText placeholder="Search" type="text" className="w-full px-4 py-1 bg-gray-600" />
+      <form onSubmit={handleSubmit}>
+        <InputText
+          placeholder="Search"
+          type="text"
+          className="w-full px-4 py-1 bg-gray-600 text-yellow-50"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+      </form>
     );
 
   return (
