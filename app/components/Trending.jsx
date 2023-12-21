@@ -54,7 +54,7 @@ async function Trending() {
               </>
             }
             footer={
-              <>
+              <div className="flex justify-content-between">
                 <div>
                   <Rating
                     value={movie.vote_average / 2}
@@ -64,7 +64,7 @@ async function Trending() {
                   />
                 </div>
                 <div>{movie.release_date}</div>
-              </>
+              </div>
             }
           >
             <h3>{movie.title}</h3>
