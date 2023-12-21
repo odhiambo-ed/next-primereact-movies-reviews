@@ -13,7 +13,7 @@ async function Trending() {
           href={`/movie/${movie.id}`}
           key={movie.id}
           className="p-m-2 p-md-3 p-lg-4" // Adjust the margin and padding as needed
-          style={{ width: "calc(15% - 52px)" }} // Specify the width for 5 cards in a row
+          style={{ width: "calc(20% - 52px)" }} // Specify the width for 5 cards in a row
         >
           <Card
             key={movie.id}
@@ -43,7 +43,7 @@ async function Trending() {
               </>
             }
             footer={
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-4">
                 <div>
                   <Rating
                     value={movie.vote_average / 2}
@@ -52,7 +52,7 @@ async function Trending() {
                     cancel={false}
                   />
                 </div>
-                <div>{movie.release_date}</div>
+                <div className="text-sm"><span>Release Date:</span> {movie.release_date}</div>
               </div>
             }
           >
