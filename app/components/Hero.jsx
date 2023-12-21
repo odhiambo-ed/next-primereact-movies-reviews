@@ -1,48 +1,39 @@
-import { Button } from "primereact/button";
+'use client';
 
-function Hero() {
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const Hero = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
-    // <div className="grid grid-nogutter surface-0 text-800 bg-gray-800">
-    //   <div className="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
-    //     <section>
-    //       <span className="block text-6xl font-bold mb-1">
-    //         Create the screens
-    //       </span>
-    //       <div className="text-6xl text-primary font-bold mb-3">
-    //         your visitors deserve to see
-    //       </div>
-    //       <p className="mt-0 mb-4 text-700 line-height-3">
-    //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    //         eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    //       </p>
+    <div className="relative h-screen">
+      <Slider {...settings}>
+        <div
+          className="bg-cover bg-center h-screen"
+          style={{ backgroundImage: "url('/path/to/slide1.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+        </div>
+        <div
+          className="bg-cover bg-center h-screen"
+          style={{ backgroundImage: "url('/path/to/slide2.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+        </div>
+        {/* Add more slides as needed */}
+      </Slider>
 
-    //       <Button
-    //         label="Learn More"
-    //         type="button"
-    //         className="mr-3 p-button-raised"
-    //       />
-    //       <Button
-    //         label="Live Demo"
-    //         type="button"
-    //         className="p-button-outlined"
-    //       />
-    //     </section>
-    //     <div className="col-12 md:col-6 overflow-hidden">
-    //       <img
-    //         src="/images/hero1.png"
-    //         alt="hero-1"
-    //         className="md:ml-auto right-0 block md:h-full"
-    //       />
-    //     </div>
-    //   </div>
-    // </div>
-    <div
-      className="relative h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/path/to/your/header-image.jpg')" }}
-    >
-      <div className="absolute inset-0 bg-black opacity-40"></div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center text-white">
+      <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+        <div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Discover the Cinematic World
           </h1>
@@ -56,6 +47,6 @@ function Hero() {
       </div>
     </div>
   );
-}
+};
 
-export default Hero
+export default Hero;
