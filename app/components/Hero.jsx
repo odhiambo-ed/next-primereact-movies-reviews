@@ -15,17 +15,17 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-screen">
+    <div className="relative h-[80vh]">
       <Slider {...settings}>
         <div
-          className="bg-cover bg-center h-screen"
-          style={{ backgroundImage: "url('/path/to/slide1.jpg')" }}
+          className="bg-cover bg-center h-[90vh]"
+          style={{ backgroundImage: "url('/images/b1.jpg')" }}
         >
           <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
         <div
-          className="bg-cover bg-center h-screen"
-          style={{ backgroundImage: "url('/path/to/slide2.jpg')" }}
+          className="bg-cover bg-center h-[90vh]"
+          style={{ backgroundImage: "url('/images/b2.jpg')" }}
         >
           <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
