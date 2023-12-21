@@ -26,3 +26,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+/* .hero {
+  background-image: url('/images/b1.jpg');
+  background-position: center;
+  background-size: cover;
+} */
