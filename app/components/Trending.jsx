@@ -18,17 +18,6 @@ async function Trending() {
           <Card
             key={movie.id}
             header={
-              // <>
-              //   <div className="relative">
-              //     <div className="absolute top-0 right-0 z-10 bg-transparent rounded-full border-3 border-white p-3 m-1 text-white font-bold">
-              //       {movie.vote_average.toFixed(1)}
-              //     </div>
-              //     <img
-              //       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              //       alt={movie.title}
-              //     />
-              //   </div>
-              // </>
               <>
                 <div className="relative">
                   <div className="absolute top-0 right-0 z-10">
@@ -66,14 +55,9 @@ async function Trending() {
                 <div>{movie.release_date}</div>
               </div>
             }
+            title={movie.title}
+            subTitle={movie.overview}
           >
-            <h3>{movie.title}</h3>
-            <p style={{ maxHeight: "100px", overflow: "hidden" }}>
-              {movie.overview}
-            </p>
-            <a href={`/movie/${movie.id}`} className="p-button-link">
-              Read More
-            </a>
           </Card>
         </Link>
       ))}
