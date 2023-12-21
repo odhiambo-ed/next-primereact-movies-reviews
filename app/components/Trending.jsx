@@ -2,8 +2,6 @@ import { getTrendingMovies } from "@/utils/responses";
 import Link from "next/link";
 import { Card } from "primereact/card";
 import { Rating } from "primereact/rating";
-import { AiOutlineLink } from "react-icons/ai";
-
 async function Trending() {
   const movies = await getTrendingMovies();
 
@@ -13,7 +11,7 @@ async function Trending() {
         <Link
           href={`/movie/${movie.id}`}
           key={movie.id}
-          className="p-m-2 p-md-3 p-lg-4 h-full" // Adjust the margin and padding as needed
+          className="p-m-2 p-md-3 p-lg-4 h-full hover:shadow-lg dark:hover:shadow-black/30" // Adjust the margin and padding as needed
           style={{ width: "calc(20% - 52px)" }} // Specify the width for 5 cards in a row
         >
           <Card
@@ -39,6 +37,7 @@ async function Trending() {
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                     alt={movie.title}
+                    className="transition duration-300 ease-in-out hover:scale-110"
                   />
                 </div>
               </>
