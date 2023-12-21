@@ -9,19 +9,22 @@ async function Trending() {
   return (
     <div className="flex flex-wrap gap-4 py-10">
       {movies.map((movie) => (
-        <Link 
-          href={`/movie/${movie.id}`} 
-          key={movie.id} 
+        <Link
+          href={`/movie/${movie.id}`}
+          key={movie.id}
           className="p-m-2 p-md-3 p-lg-4" // Adjust the margin and padding as needed
           style={{ width: "calc(20% - 32px)" }} // Specify the width for 5 cards in a row
         >
           <Card
             key={movie.id}
             header={
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-              />
+              <>
+                <div className="movie-rating-circle">{movie.vote_average}</div>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                />
+              </>
             }
             footer={
               <>
