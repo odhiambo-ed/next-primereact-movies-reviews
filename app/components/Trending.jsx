@@ -43,7 +43,7 @@ async function Trending() {
               </>
             }
             footer={
-              <div className="flex flex-col gap-2 ">
+              <div className="flex flex-col gap-2">
                 <div>
                   <Rating
                     value={movie.vote_average / 2}
