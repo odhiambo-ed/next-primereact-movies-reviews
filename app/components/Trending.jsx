@@ -19,11 +19,15 @@ async function Trending() {
             key={movie.id}
             header={
               <>
-                <div className="movie-rating-circle">{movie.vote_average}</div>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                <div className="relative">
+                  <div className="absolute top-0 right-0 z-10 bg-transparent rounded-full border-3 border-white p-3 m-1 text-white font-bold">
+                    {movie.vote_average.toFixed(1)}
+                  </div>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                </div>
               </>
             }
             footer={
