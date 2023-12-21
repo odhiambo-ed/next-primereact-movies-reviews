@@ -1,26 +1,40 @@
-import { getTrendingMovies } from '@/utils/responses'
-import Link from 'next/link'
+import { getTrendingMovies } from "@/utils/responses";
+import { Card } from "primereact/card";
+import { Rating } from "primereact/rating";
 
 async function Trending() {
-    const movies = await getTrendingMovies();
+  const movies = await getTrendingMovies();
+
   return (
-    <div>
-      <h2>Trending Movies</h2>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>
-            <Link href={"/movies/" + movie.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+    <div className="flex flex-wrap gap-4">
+      {movies.map((movie) => (
+        <Card
+          key={movie.id}
+          header={
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+          }
+          footer={
+            <>
+              <div>{movie.release_date}</div>
+              <Rating
+                value={movie.vote_average / 2}
+                stars={5}
+                readonly
+                cancel={false}
               />
-              <h3>{movie.title}</h3>
-              <p>{movie.overview}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+            </>
+          }
+          className="p-m-2 p-md-3 p-lg-4" // Adjust the margin and padding as needed
+          style={{ width: "calc(25% - 32px)" }} // Specify the width for 4 cards in a row
+        >
+          <h3>{movie.title}</h3>
+          <p style={{ maxHeight: "100px", overflow: "hidden" }}>
+            {movie.overview}
+          </p>
+        </Card>
+      ))}
     </div>
   );
 }
 
-export default Trending
+export default Trending;
