@@ -6,7 +6,7 @@ async function Trending() {
   const movies = await getTrendingMovies();
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap gap-4 py-10">
       {movies.map((movie) => (
         <Card
           key={movie.id}
@@ -29,21 +29,11 @@ async function Trending() {
               <div>{movie.release_date}</div>
             </>
           }
-          className="p-m-2 p-md-3 p-lg-4 movie-card"
-          style={{ width: "calc(20% - 32px)" }}
+          className="p-m-2 p-md-3 p-lg-4" // Adjust the margin and padding as needed
+          style={{ width: "calc(20% - 32px)" }} // Specify the width for 5 cards in a row
         >
           <h3>{movie.title}</h3>
-          <div className="movie-genres">
-            {movie.genres.map((genre) => (
-              <span key={genre.id} className="p-tag p-mr-1">
-                {genre.name}
-              </span>
-            ))}
-          </div>
-          <p
-            className="movie-overview"
-            style={{ maxHeight: "100px", overflow: "hidden" }}
-          >
+          <p style={{ maxHeight: "100px", overflow: "hidden" }}>
             {movie.overview}
           </p>
           <a href={`/movie/${movie.id}`} className="p-button-link">
