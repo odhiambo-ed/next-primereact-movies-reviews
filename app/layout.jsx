@@ -4,6 +4,7 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import Header from './components/Header';
+import "primeflex/primeflex.css";
 
 const inter = Inter({ subsets: ['latin'] })
 
